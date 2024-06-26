@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         REGISTRY = "ghcr.io"
-        IMAGE_NAME = "dobaato-admin/git@github.com:Dobaato/saahitt-be-test.git"
+        IMAGE_NAME = "dilipbam/git@github.com:dilipbam/saahit-test.git"
         GHCR_TOKEN = credentials('ghcr-token')
     }
 
