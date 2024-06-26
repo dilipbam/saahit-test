@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>vendor_app.callbacks package &#8212; Saahitt  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="customer_app package" href="customer_app.html" />
+    <link rel="prev" title="vendor_app.aggregator package" href="vendor_app.aggregator.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="vendor-app-callbacks-package">
+<h1>vendor_app.callbacks package<a class="headerlink" href="#vendor-app-callbacks-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-vendor_app.callbacks.user_views">
+<span id="vendor-app-callbacks-user-views-module"></span><h2>vendor_app.callbacks.user_views module<a class="headerlink" href="#module-vendor_app.callbacks.user_views" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.ForgotPassword">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">ForgotPassword</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.ForgotPassword" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.ForgotPassword.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.ForgotPassword.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.ForgotPassword.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.ForgotPassword.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for forgot-password.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for password-forgot.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a POST request to ‘/vendor-api/forgot-password’ with JSON payload containing
+‘email’, ‘reset_url’ field.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.RefreshTokenApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">RefreshTokenApi</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.RefreshTokenApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.RefreshTokenApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.RefreshTokenApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.RefreshTokenApi.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.RefreshTokenApi.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for user token refresh.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for user token refresh.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a POST request to ‘/vendor-api/refresh-token’ with logged-in user</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message and new access and refresh token.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.Register">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">Register</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.Register" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<p>this view is for the vendor registration process</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.Register.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.Register.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.Register.password_validation">
+<span class="sig-name descname"><span class="pre">password_validation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.Register.password_validation" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.Register.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.Register.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for user registration.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for user registration.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a POST request to ‘/vendor-api/register’ with JSON payload containing
+‘fullname’, ‘password’, ‘confirm_password’, ‘email’, and ‘phone_number’ fields.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with registration status and message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.ResendOTP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">ResendOTP</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.ResendOTP" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.ResendOTP.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.ResendOTP.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.ResendOTP.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.ResendOTP.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for resend otp for user email verification.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for user registration.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a post request to ‘/vendor-api/resend-otp’ with json payload containing ‘email’.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.ResetPassword">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">ResetPassword</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.ResetPassword" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.ResetPassword.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.ResetPassword.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.ResetPassword.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.ResetPassword.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for password-reset.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for password-reset.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a POST request to ‘/vendor-api/reset-password/&lt;token&gt;’ with JSON payload containing
+‘password’ and ‘confirm_password’ fields.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorBasicInfoApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">VendorBasicInfoApi</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorBasicInfoApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorBasicInfoApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorBasicInfoApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get vendor basic info.</p>
+<p><strong>Endpoint:</strong> <a href="#id5"><span class="problematic" id="id6">`</span></a>GET /vendor-api/basic-info</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id7" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for one specific vendor basic info.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/basic-info’ with logged-in user.</p>
+</dd>
+</dl>
+<p>Returns: JSON response with vendor basic info.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorBasicInfoApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorBasicInfoApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorLogin">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">VendorLogin</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorLogin" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorLogin.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorLogin.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorLogin.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorLogin.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for vendor login.
+.. method:: post()</p>
+<blockquote>
+<div><p>Handle POST requests for user login.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a POST request to ‘/vendor-api/login’ with JSON payload containing
+‘email’, ‘password’ fields.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with access_token, refresh_token and success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorLogout">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">VendorLogout</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorLogout" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorLogout.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorLogout.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorLogout.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorLogout.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for vendor logout.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id8" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for vendor logout.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a POST request to ‘/vendor-api/logout’ with logged-in user</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorProfileApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">VendorProfileApi</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorProfileApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<p>API endpoint for managing vendor profiles.</p>
+<p>This class provides GET and POST methods to retrieve and create vendor profiles.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorProfileApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorProfileApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorProfileApi.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorProfileApi.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for vendor profile creation.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id9" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for vendor profile creation.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a POST request to ‘/vendor-api/profile’ with from-data containing
+‘vendor_type’, ‘industry_id’, ‘profile_image’, ‘estd_date’, ‘location’,’pan_number’,
+‘pan_image’, ‘pan_holder_citizenship’, ‘pan_holder_photo’ fields.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success status and message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorProfileDetailApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">VendorProfileDetailApi</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorProfileDetailApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<p>Vendor profile detail api returns details for a specific vendor only</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorProfileDetailApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorProfileDetailApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get vendor profile detail.</p>
+<p><strong>Endpoint:</strong> <a href="#id10"><span class="problematic" id="id11">`</span></a>GET /vendor-api/profile-detail</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id12">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id12" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for one specific vendor profile.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/profile-detail’ with logged-in user.</p>
+</dd>
+</dl>
+<p>Returns: JSON response with vendor profile data.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorProfileDetailApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'PUT'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorProfileDetailApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VendorProfileDetailApi.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.VendorProfileDetailApi.put" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for vendor profile update.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id13">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id13" title="Link to this definition">¶</a></dt>
+<dd><p>Handle PUT requests for vendor profile update.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a PUT request to ‘/vendor-api/profile-detail’ with from-data containing
+‘vendor_type’, ‘industry_id’, ‘profile_image’, ‘estd_date’, ‘location’,
+‘pan_number’, ‘pan_image’, ‘pan_holder_citizenship’, ‘pan_holder_photo’ fields.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success status and message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VerifyEmail">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.user_views.</span></span><span class="sig-name descname"><span class="pre">VerifyEmail</span></span><a class="headerlink" href="#vendor_app.callbacks.user_views.VerifyEmail" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VerifyEmail.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.user_views.VerifyEmail.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.user_views.VerifyEmail.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.user_views.VerifyEmail.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint for user email verification.
+.. method:: post()</p>
+<blockquote>
+<div><p>Handle POST requests for user registration.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a post request to ‘/vendor-api/verify-email’ with JSON payload containing
+‘email’, ‘verification_code’ fields.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with verification message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-vendor_app.callbacks.venue_views">
+<span id="vendor-app-callbacks-vendor-views-module"></span><h2>vendor_app.callbacks.vendor_views module<a class="headerlink" href="#module-vendor_app.callbacks.venue_views" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.FoodItemDetailApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">FoodItemDetailApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.FoodItemDetailApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.FoodItemDetailApi.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.FoodItemDetailApi.delete" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to delete a food-item.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id14">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id14" title="Link to this definition">¶</a></dt>
+<dd><p>Handle DELETE requests for a food-item.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a delete request to ‘/vendor-api/food-items/&lt;int:item_id&gt;’ with logged-in user</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.FoodItemDetailApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.FoodItemDetailApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get food-item detail.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id15">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id15" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for a food-item detail.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/food-items/&lt;int:item_id&gt;’ with logged-in user.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with venue data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.FoodItemDetailApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'PUT'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.FoodItemDetailApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.FoodItemDetailApi.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.FoodItemDetailApi.put" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to update a food-item.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id16">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id16" title="Link to this definition">¶</a></dt>
+<dd><p>Handle PUT requests for a food-item.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a put request to ‘/vendor-api/food-items/&lt;int:item_id&gt;’ with logged-in user
+and food-item data containing ‘item_name’, ‘item_description’, ‘item_price’, ‘type’</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.FoodItemListApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">FoodItemListApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.FoodItemListApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.FoodItemListApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.FoodItemListApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get vendor food-items.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id17">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id17" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for a vendor food-items.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/food-items’ with logged-in user.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with vendor food-items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.FoodItemListApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.FoodItemListApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.FoodItemListApi.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.FoodItemListApi.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to add new food-item.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id18">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id18" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for food-item.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a post request to ‘/vendor-api/food-items’ with logged-in user and data
+containing ‘item_name’, ‘item_description’, ‘item_price’, ‘type’</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuDetailApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">MenuDetailApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuDetailApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuDetailApi.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">menu_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuDetailApi.delete" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to delete a menu.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id19">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id19" title="Link to this definition">¶</a></dt>
+<dd><p>Handle DELETE requests for a menu.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a delete request to ‘/vendor-api/menu/&lt;int:menu_id&gt;’ with logged-in user</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuDetailApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">menu_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuDetailApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get menu detail.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id20">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id20" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for a menu detail.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/menu/&lt;int:menu_id&gt;’ with logged-in user.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with venue data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuDetailApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'PUT'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuDetailApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuDetailApi.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">menu_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuDetailApi.put" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to update a menu.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id21">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id21" title="Link to this definition">¶</a></dt>
+<dd><p>Handle PUT requests for a menu.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a put request to ‘/vendor-api/menu/&lt;int:menu_id&gt;’ with logged-in user
+and menu data containing ‘name’, ‘description’, ‘cuisine’, ‘no_of_items’, ‘rate’</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuFoodItemApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">MenuFoodItemApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuFoodItemApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuFoodItemApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">menu_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuFoodItemApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get menu food-items.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id22">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id22" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for a menu food-items.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/menu/&lt;int:menu_id&gt;/menu-items’ with logged-in user.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with menu food-items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuFoodItemApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuFoodItemApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuFoodItemApi.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">menu_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuFoodItemApi.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to add new food-item in menu.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id23">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id23" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for food-item in menu.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a post request to ‘/vendor-api/menu/&lt;int:menu_id&gt;/menu-items’ with logged-in user and data
+like {‘menu_items’: [{‘item_id’:0, ‘menu_id’:menu_id}]}</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuFoodItemDetailApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">MenuFoodItemDetailApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuFoodItemDetailApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuFoodItemDetailApi.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">menu_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">menu_food_item_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuFoodItemDetailApi.delete" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to delete a menu food-item.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id24">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id24" title="Link to this definition">¶</a></dt>
+<dd><p>Handle DELETE requests for a menu food-item.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a delete request to ‘/vendor-api/menu/&lt;int:menu_id&gt;/menu-items/&lt;int:menu_food_item_id&gt;’
+with logged-in user</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuFoodItemDetailApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DELETE'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuFoodItemDetailApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuListApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">MenuListApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuListApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuListApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuListApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get vendor menus.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id25">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id25" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for a vendor menus.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/menu’ with logged-in user.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with vendor menu data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuListApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuListApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.MenuListApi.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.MenuListApi.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to add new menu.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id26">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id26" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for menu.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a post request to ‘/vendor-api/menu’ with logged-in user and data
+containing ‘name’, ‘description’, ‘cuisine’, ‘no_of_items’, ‘rate’</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VendorIndustryList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">VendorIndustryList</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VendorIndustryList" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<p>Class representing the API endpoint for vendor industry list.</p>
+<dl class="simple">
+<dt>Inherits:</dt><dd><p>DobatoApi: Base class for Dobato API endpoints.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VendorIndustryList.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VendorIndustryList.get" title="Link to this definition">¶</a></dt>
+<dd><p>Handle GET requests for vendor industry list.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a GET request to ‘/vendor-api/vendor-industry-list’</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="id27">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id27" title="Link to this definition">¶</a></dt>
+<dd><p>Handle GET requests for vendor industry list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with vendor-industry data and success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VendorIndustryList.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.VendorIndustryList.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueDetailApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">VenueDetailApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueDetailApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueDetailApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueDetailApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get venue detail.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id28">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id28" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for a venue.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/venue/&lt;venue_id&gt;’ with logged-in user.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with venue data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueDetailApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'PUT'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueDetailApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueDetailApi.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueDetailApi.put" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to update a venue.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id29">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id29" title="Link to this definition">¶</a></dt>
+<dd><p>Handle PUT requests for venue.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a put request to ‘/vendor-api/venue/&lt;venue_id&gt;’ with logged-in user and venue data
+containing ‘venue_name’, ‘location’, ‘parking_capacity’, ‘venue_type’, ‘mandatory_parking’</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueListApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">VenueListApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueListApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueListApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueListApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get the user’s venue.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id30">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id30" title="Link to this definition">¶</a></dt>
+<dd><p>Handle GET requests to get the venue.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/venue’ with logged-in user</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueListApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueListApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueListApi.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueListApi.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to add new venue.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id31">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id31" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for venue.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a post request to ‘/vendor-api/venue’ with logged-in user and venue data
+containing ‘venue_name’, ‘location’, ‘parking_capacity’, ‘venue_type’, ‘mandatory_catering’</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueSpaceDetailApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">VenueSpaceDetailApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueSpaceDetailApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueSpaceDetailApi.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueSpaceDetailApi.delete" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to delete a venue-space.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id32">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id32" title="Link to this definition">¶</a></dt>
+<dd><p>Handle DELETE requests for a venue-space.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a DELETE request to ‘/vendor-api/venue/&lt;int:venue_id&gt;/venue-space/&lt;int:space_id&gt;’ with logged-in user</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueSpaceDetailApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueSpaceDetailApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get venue-space detail.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id33">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id33" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for a venue-space detail.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/venue/&lt;int:venue_id&gt;/venue-space/&lt;int:space_id&gt;’ with logged-in user.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with venue data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueSpaceDetailApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'DELETE',</span> <span class="pre">'GET',</span> <span class="pre">'PUT'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueSpaceDetailApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueSpaceDetailApi.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueSpaceDetailApi.put" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to update a venue-space.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id34">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id34" title="Link to this definition">¶</a></dt>
+<dd><p>Handle PUT requests for a venue-space.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a put request to ‘/vendor-api/venue/&lt;int:venue_id&gt;/venue-space/&lt;int:space_id&gt;’ with logged-in user
+and venue space data containing ‘space_name’, ‘space_type, ‘’description’, ‘rate’, ‘type_of_charge’,
+‘seating_capacity’ and ‘floating_capacity’</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueSpaceListApi">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vendor_app.callbacks.venue_views.</span></span><span class="sig-name descname"><span class="pre">VenueSpaceListApi</span></span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueSpaceListApi" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">DobatoApi</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueSpaceListApi.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueSpaceListApi.get" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to get venue spaces.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id35">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id35" title="Link to this definition">¶</a></dt>
+<dd><p>Handle get requests for a venue spaces.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a get request to ‘/vendor-api/venue/&lt;venue_id&gt;/venue-space’ with logged-in user.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with venue space data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueSpaceListApi.methods">
+<span class="sig-name descname"><span class="pre">methods</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">t.ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">t.Collection</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'GET',</span> <span class="pre">'POST'}</span></em><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueSpaceListApi.methods" title="Link to this definition">¶</a></dt>
+<dd><p>The methods this view is registered for. Uses the same default
+(<code class="docutils literal notranslate"><span class="pre">[&quot;GET&quot;,</span> <span class="pre">&quot;HEAD&quot;,</span> <span class="pre">&quot;OPTIONS&quot;]</span></code>) as <code class="docutils literal notranslate"><span class="pre">route</span></code> and
+<code class="docutils literal notranslate"><span class="pre">add_url_rule</span></code> by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vendor_app.callbacks.venue_views.VenueSpaceListApi.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">venue_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vendor_app.callbacks.venue_views.VenueSpaceListApi.post" title="Link to this definition">¶</a></dt>
+<dd><p>API endpoint to add new venue-space.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="id36">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#id36" title="Link to this definition">¶</a></dt>
+<dd><p>Handle POST requests for venue-space.</p>
+</dd></dl>
+
+<dl class="simple">
+<dt>Usage:</dt><dd><p>Send a post request to ‘/vendor-api/venue/&lt;int:venue_id&gt;/venue-space’ with logged-in user and venue data
+containing ‘space_name’, ‘space_type’, ‘description’, ‘rate’, ‘type_of_charge’, ‘seating_capacity’ and
+‘floating_capacity’</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>JSON response with success message.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-vendor_app.callbacks">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-vendor_app.callbacks" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Saahitt</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="vendor_app.html">vendor_app package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="vendor_app.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vendor_app.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vendor_app.html#module-vendor_app.config">vendor_app.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vendor_app.html#module-vendor_app.app_vendor">vendor_app.vendor-app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vendor_app.html#module-vendor_app">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="customer_app.html">customer_app package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="super_admin.html">super_admin package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cron.html">cron package</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">sahaSaahit-BE</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="app.html">app module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customer_app.html">customer_app package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="super_admin.html">super_admin package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="vendor_app.html">vendor_app package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="views.html">views module</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="vendor_app.html">vendor_app package</a><ul>
+      <li>Previous: <a href="vendor_app.aggregator.html" title="previous chapter">vendor_app.aggregator package</a></li>
+      <li>Next: <a href="customer_app.html" title="next chapter">customer_app package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Dobaato.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.3.7</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/vendor_app.callbacks.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
