@@ -1,41 +1,57 @@
-version: '3.8'
+pipeline {
+    agent any
 
-services:
-  postgres:
-    image: ghcr.io/your-username/microservices-repo-postgres:latest
-    environment:
-      POSTGRES_PASSWORD: yourpassword
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    environment {
+        REGISTRY = "ghcr.io"
+        IMAGE_NAME = "dilipbam/git@github.com:dilipbam/saahit-test.git"
+        GHCR_TOKEN = credentials('ghcr-token')
+    }
 
-  customer:
-    image: ghcr.io/your-username/microservices-repo-customer:latest
-    ports:
-      - "8001:5000"
-    depends_on:
-      - postgres
-    environment:
-      - DATABASE_URL=postgres://postgres:yourpassword@postgres:5432/yourdatabase
-
-  venue:
-    image: ghcr.io/your-username/microservices-repo-venue:latest
-    ports:
-      - "8002:5000"
-    depends_on:
-      - postgres
-    environment:
-      - DATABASE_URL=postgres://postgres:yourpassword@postgres:5432/yourdatabase
-
-  super_admin:
-    image: ghcr.io/your-username/microservices-repo-super_admin:latest
-    ports:
-      - "8003:5000"
-    depends_on:
-      - postgres
-    environment:
-      - DATABASE_URL=postgres://postgres:yourpassword@postgres:5432/yourdatabase
-
-volumes:
-  postgres_data:
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Build and Push Customer Image') {
+            steps {
+                script {
+                    dockerImage = docker.build("${env.REGISTRY}/${env.IMAGE_NAME}-customer:${env.BUILD_ID}", "--build-arg SERVICE=customer .")
+                    docker.withRegistry("https://${env.REGISTRY}", "ghcr") {
+                        dockerImage.push("latest")
+                    }
+                }
+            }
+        }
+        stage('Build and Push Venue Image') {
+            steps {
+                script {
+                    dockerImage = docker.build("${env.REGISTRY}/${env.IMAGE_NAME}-venue:${env.BUILD_ID}", "--build-arg SERVICE=venue .")
+                    docker.withRegistry("https://${env.REGISTRY}", "ghcr") {
+                        dockerImage.push("latest")
+                    }
+                }
+            }
+        }
+        stage('Build and Push Super Admin Image') {
+            steps {
+                script {
+                    dockerImage = docker.build("${env.REGISTRY}/${env.IMAGE_NAME}-super_admin:${env.BUILD_ID}", "--build-arg SERVICE=super_admin .")
+                    docker.withRegistry("https://${env.REGISTRY}", "ghcr") {
+                        dockerImage.push("latest")
+                    }
+                }
+            }
+        }
+        stage('Build and Push Postgres Image') {
+            steps {
+                script {
+                    dockerImage = docker.build("${env.REGISTRY}/${env.IMAGE_NAME}-postgres:${env.BUILD_ID}", "--build-arg SERVICE=postgres .")
+                    docker.withRegistry("https://${env.REGISTRY}", "ghcr") {
+                        dockerImage.push("latest")
+                    }
+                }
+            }
+        }
+    }
+}
