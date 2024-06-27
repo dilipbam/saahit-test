@@ -15,7 +15,7 @@ pipeline {
         stage('Build Customer Image') {
             steps {
                 script {
-                    dockerImage = docker.build("${env.registry}:V${env.BUILD_NUMBER}", "--build-arg SERVICE=customer .")
+                    dockerImage = docker.build("${env.registry}:V${env.BUILD_NUMBER}", "--build-arg SERVICE=customer_app .")
                 }
             }
         }
