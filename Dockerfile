@@ -10,6 +10,7 @@ ARG SERVICE
 ENV SERVICE=${SERVICE}
 
 # Copy the relevant service code and requirements based on the SERVICE argument
+COPY ${SERVICE}/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY ${SERVICE} /app
