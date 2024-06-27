@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        registry = "dilipbam/saahitt-test"
+        registry = "dilipbam/saahitt-customer"
         registryCredential = "dockerhub"
     }
 
