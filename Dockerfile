@@ -10,7 +10,6 @@ ARG SERVICE
 ENV SERVICE=${SERVICE}
 
 # Copy the relevant service code and requirements based on the SERVICE argument
-COPY ${SERVICE}/requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY ${SERVICE} /app
@@ -25,7 +24,7 @@ FROM python-base AS final-stage
 EXPOSE 5000 5432
 
 # Define the entrypoint for each service
-CMD if [ "$SERVICE" = "customer" ]; then \
+CMD if [ "$SERVICE" = "customer_app" ]; then \
         python app.py; \
     elif [ "$SERVICE" = "venue" ]; then \
         python app.py; \
