@@ -20,7 +20,6 @@ FROM postgres:15 AS postgres-base
 
 # Final stage to select the correct base image and run the service
 FROM python-base AS final-stage
-COPY --from=postgres-base /docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 
 # Expose ports
 EXPOSE 5000 5432
