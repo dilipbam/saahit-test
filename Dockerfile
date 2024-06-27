@@ -16,8 +16,7 @@ RUN pip install -r requirements.txt
 COPY ${SERVICE} /app
 
 # Postgres service base image
-FROM postgres:13 AS postgres-base
-COPY postgres/init.sql /docker-entrypoint-initdb.d/
+FROM postgres:15 AS postgres-base
 
 # Final stage to select the correct base image and run the service
 FROM python-base AS final-stage
