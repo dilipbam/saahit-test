@@ -83,7 +83,7 @@ pipeline {
         dockerImage = 'saahitt-customer' // Replace with your Docker image name
         dockerHubRepo = 'dilipbam/saahitt-customer' // Replace with your Docker Hub repository path
         dockerTag = "${dockerImage}-${BUILD_NUMBER}" // Tag with Jenkins build number
-        registryCredential = "dockerhub"
+        dockerHubCredentials = credentials('dockerhub')
     }
 
     stages {
