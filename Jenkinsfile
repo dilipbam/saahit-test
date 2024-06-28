@@ -76,14 +76,63 @@
 //         }
 //     }
 // }
+// pipeline {
+//     agent any
+
+//     environment {
+//         dockerImage = 'saahitt-customer' // Replace with your Docker image name
+//         dockerHubRepo = 'dilipbam/saahitt-customer' // Replace with your Docker Hub repository path
+//         dockerTag = "${dockerImage}-${BUILD_NUMBER}" // Tag with Jenkins build number
+//         dockerHubCredentials = credentials('dockerhub')
+//     }
+
+//     stages {
+//         stage('Checkout') {
+//             steps {
+//                 checkout scm
+//             }
+//         }
+
+//         stage('Build Docker Image') {
+//             steps {
+//                 script {
+//                     // Build the Docker image
+//                     sh "docker build -t ${dockerImage}:${dockerTag} ."
+//                 }
+//             }
+//         }
+
+//         stage('Tag and Push Docker Image') {
+//             steps {
+//                 script {
+//                     // Tag the Docker image
+//                     sh "docker tag ${dockerImage}:${dockerTag} ${dockerHubRepo}:${dockerTag}"
+                    
+//                     // Log in to Docker Hub
+//                     sh "echo ${DOCKER_HUB_PASSWORD} | docker login -u ${DOCKER_HUB_USERNAME} --password-stdin"
+
+//                     // Push the Docker image to Docker Hub
+//                     sh "docker push ${dockerHubRepo}:${dockerTag}"
+//                 }
+//             }
+//         }
+//     }
+
+//     post {
+//         always {
+//             // Clean up workspace
+//             cleanWs()
+//         }
+//     }
+// }
 pipeline {
     agent any
 
     environment {
         dockerImage = 'saahitt-customer' // Replace with your Docker image name
         dockerHubRepo = 'dilipbam/saahitt-customer' // Replace with your Docker Hub repository path
-        dockerTag = "${dockerImage}-${BUILD_NUMBER}" // Tag with Jenkins build number
-        dockerHubCredentials = credentials('dockerhub')
+        dockerTag = "${dockerImage}-${BUILD_NUMBER}" // Dynamic versioning with Jenkins build number
+        dockerHubCredentials = credentials('dockerhub') // Use ID of credentials defined in Jenkins global configuration
     }
 
     stages {
@@ -109,10 +158,12 @@ pipeline {
                     sh "docker tag ${dockerImage}:${dockerTag} ${dockerHubRepo}:${dockerTag}"
                     
                     // Log in to Docker Hub
-                    sh "echo ${DOCKER_HUB_PASSWORD} | docker login -u ${DOCKER_HUB_USERNAME} --password-stdin"
-
-                    // Push the Docker image to Docker Hub
-                    sh "docker push ${dockerHubRepo}:${dockerTag}"
+                    withCredentials([dockerHubCredentials]) {
+                        sh "docker login -u ${dockerHubCredentials.username} -p ${dockerHubCredentials.password}"
+                        
+                        // Push the Docker image to Docker Hub
+                        sh "docker push ${dockerHubRepo}:${dockerTag}"
+                    }
                 }
             }
         }
