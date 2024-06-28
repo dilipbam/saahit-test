@@ -176,12 +176,54 @@
 //         }
 //     }
 // }
+// pipeline {
+//     agent any
+
+//     environment {
+//         dockerImage = 'saahitt-customer' // Replace with your Docker image name
+//         dockerTag = "${dockerImage}-${BUILD_NUMBER}" // Dynamic versioning with Jenkins build number
+//         dockerHubRepo = 'dilipbam/saahitt-test'
+//     }
+
+//     stages {
+//         stage('Checkout') {
+//             steps {
+//                 checkout scm
+//             }
+//         }
+
+//         stage('Build and Push Docker Image') {
+//             steps {
+//                 script {
+//                     // Build Docker image
+//                     sh "docker build -t ${dockerImage}:${dockerTag} ."
+
+//                     // Tag Docker image
+//                     sh "docker tag ${dockerImage}:${dockerTag} ${dockerHubRepo}:${dockerTag}"
+
+//                     // Authenticate and push to Docker Hub
+//                     withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_HUB_USERNAME', passwordVariable: 'DOCKER_HUB_PASSWORD')]) {
+//                         sh "docker login -u ${DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_PASSWORD}"
+//                         sh "docker push ${dockerHubRepo}:${dockerTag}"
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     post {
+//         always {
+//             // Clean up workspace
+//             cleanWs()
+//         }
+//     }
+// }
 pipeline {
     agent any
 
     environment {
-        dockerImage = 'saahitt-customer' // Replace with your Docker image name
-        dockerTag = "${dockerImage}-${BUILD_NUMBER}" // Dynamic versioning with Jenkins build number
+        dockerImage = 'saahitt-test'
+        dockerTag = "${dockerImage}-${BUILD_NUMBER}"
         dockerHubRepo = 'dilipbam/saahitt-test'
     }
 
@@ -204,7 +246,7 @@ pipeline {
                     // Authenticate and push to Docker Hub
                     withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_HUB_USERNAME', passwordVariable: 'DOCKER_HUB_PASSWORD')]) {
                         sh "docker login -u ${DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_PASSWORD}"
-                        sh "docker push ${dockerHubRepo}:${dockerTag}"
+                        sh "docker --log-level=debug push ${dockerHubRepo}:${dockerTag}"
                     }
                 }
             }
