@@ -182,6 +182,7 @@ pipeline {
     environment {
         dockerImage = 'saahitt-customer' // Replace with your Docker image name
         dockerTag = "${dockerImage}-${BUILD_NUMBER}" // Dynamic versioning with Jenkins build number
+        dockerHubRepo = 'dilipbam/saahitt-customer'
     }
 
     stages {
