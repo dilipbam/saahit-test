@@ -1,41 +1,55 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: ghcr.io/dilipbam/saahitt-postgres:latest
+  customer_app:
+    build:
+      context: .
+      dockerfile: ./deploy/Dockerfile.customer
+    image: diliipbam/customer_app:latest
+    ports:
+      - "8081:80"
     environment:
-      POSTGRES_PASSWORD: root123
+      - ENV_VAR=value
+    depends_on:
+      - postgres
+      - redis
+
+  venue_app:
+    build:
+      context: .
+      dockerfile: ./deploy/Dockerfile.vendor
+    image: diliipbam/venue_app:latest
+    ports:
+      - "8082:80"
+    environment:
+      - ENV_VAR=value
+    depends_on:
+      - postgres
+      - redis
+
+  superadmin:
+    build:
+      context: .
+      dockerfile: ./deploy/Dockerfile.superadmin
+    image: diliipbam/superadmin:latest
+    ports:
+      - "8083:80"
+    environment:
+      - ENV_VAR=value
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=${DATABASE}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     ports:
       - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
 
-  customer:
-    image: ghcr.io/dobaato/saahitt-customer:latest
+  redis:
+    image: redis:5.0.4
     ports:
-      - "8001:5000"
-    depends_on:
-      - postgres
-    environment:
-      - DATABASE_URL=postgres://postgres:root123@postgres:5432/sahasahit
-
-  venue:
-    image: ghcr.io/dobaato/saahitt-venue:latest
-    ports:
-      - "8002:5000"
-    depends_on:
-      - postgres
-    environment:
-      - DATABASE_URL=postgres://postgres:root123@postgres:5432/sahasahit
-
-  super_admin:
-    image: ghcr.io/dobaato/saahitt-super_admin:latest
-    ports:
-      - "8003:5000"
-    depends_on:
-      - postgres
-    environment:
-      - DATABASE_URL=postgres://postgres:root123@postgres:5432/sahasahit
-
-volumes:
-  postgres_data:
+      - "6379:6379"
