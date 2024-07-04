@@ -73,7 +73,7 @@ services:
   superadmin:
     image: diliipbam/test:latest
     env_file:
-      - ./superadmin/.env
+      - ./super_admin/.env
     ports:
       - "${SERVICE_PORT}:8002"
 
