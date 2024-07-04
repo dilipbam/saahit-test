@@ -16,6 +16,8 @@ COPY vendor_app/.env /app/vendor_app/.env
 COPY super_admin/.env /app/super_admin/.env
 COPY cron/.env /app/cron/.env
 
+COPY requirements.txt /app/requirements.txt
+
 # Install any necessary dependencies
 # Assuming each microservice has its own requirements.txt
 RUN pip install -r requirements.txt
