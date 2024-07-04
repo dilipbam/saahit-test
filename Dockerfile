@@ -14,7 +14,7 @@ COPY cron_app /app/cron_app
 COPY customer_app/.env /app/customer_app/.env
 COPY vendor_app/.env /app/vendor_app/.env
 COPY superadmin/.env /app/superadmin/.env
-COPY cron_app/.env /app/cron_app/.env
+COPY cron/.env /app/cron/.env
 
 # Install any necessary dependencies
 # Assuming each microservice has its own requirements.txt
