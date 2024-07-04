@@ -3,70 +3,12 @@ from sqlalchemy import inspect
 from sqlalchemy.exc import SQLAlchemyError
 
 from super_admin.utils.admin_site import admin_assets
-from utilities.vendor_forms import VendorForms
-from vendor_app.callbacks.user_validators import VendorIndustrySchema, UserTypeSchema
-from vendor_app.utils.dynamic_fields import VENDOR_INDUSTRY_ADDITIONAL_FIELDS
+
 from utilities.dobato import DobatoApi
 from utilities.responses import *
 from flask import request, jsonify, current_app
 
 from utilities.schemas.models import VendorIndustry, UserType, User
-
-
-class GetFormType(DobatoApi):
-    def get(self):
-        form_factory = VendorForms()
-        return jsonify({'form_types': form_factory.get_forms()})
-
-
-
-class AddVendorForm(DobatoApi):
-    def get(self):
-        return jsonify(VENDOR_INDUSTRY_ADDITIONAL_FIELDS)
-
-    def post(self):
-        data = request.get_json()
-        vendor_id = data['vendor_id']
-        form_type = data
-
-
-# saahitt admin to add industries for vendors
-class AddVendorIndustry(DobatoApi):
-    """
-        Class takes industry name to be added by business/operations team at Saahitt
-    """
-
-    def get(self):
-        vendor_industry_fields = VENDOR_INDUSTRY_ADDITIONAL_FIELDS
-        return jsonify(vendor_industry_fields)
-
-    def post(self):
-        # get database session
-        vendor_industry_data = request.json
-        vendor_industry_schema = VendorIndustrySchema()
-
-        try:
-            validated_industry_data = vendor_industry_schema.load(vendor_industry_data)
-        except Exception as e:
-            raise e
-
-        vendor_industry_name = validated_industry_data['industry_name']
-        try:
-            vendor_industry = self.db.query(VendorIndustry).filter_by(industry_name=vendor_industry_name).first()
-        except SQLAlchemyError as e:
-            vendor_industry = None
-        if vendor_industry:
-            return jsonify({'message': 'Vendor Industry already exists'})
-        try:
-            new_industry = VendorIndustry(**validated_industry_data)
-            self.db.add(new_industry)
-            self.db.commit()
-            return success_response('Vendor Industry added successfully')
-        except Exception as e:
-            self.db.rollback()
-            return jsonify({'message': str(e)})
-        finally:
-            self.db.close()
 
 
 class ListRegisteredTables(DobatoApi):
@@ -155,3 +97,31 @@ class ItemDetail(DobatoApi):
             return server_error(msg=f"unable to delete item. "
                                     f"Error details:{str(e)}")
         return success_response(msg="item deleted successfully")
+
+
+class VendorIndustryList(DobatoApi):
+    """
+    Class representing the API endpoint for vendor industry list.
+
+    Inherits:
+        DobatoApi: Base class for Dobato API endpoints.
+
+    Methods:
+        get(): Handle GET requests for vendor industry list.
+
+    Usage:
+        Send a GET request to '/admin-api/vendor-industry-list'
+
+    """
+
+    def get(self):
+        """
+        Handle GET requests for vendor industry list.
+
+        Returns:
+            JSON response with vendor-industry data and success message.
+        """
+        # get list of vendor industries eg: venues, photography etc.
+        # TODO: try-catch here
+        rows = self.db.query(VendorIndustry.id, VendorIndustry.industry_name).all()
+        return self.list_response(rows)

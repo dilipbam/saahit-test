@@ -29,11 +29,60 @@
 //     }
 //   }
 // }
+// pipeline {
+//     agent any
+
+//     environment {
+//         registry = "diliipbam"
+//         registryCredential = "dockerhub"
+//     }
+
+//     stages {
+//         stage('Checkout') {
+//             steps {
+//                 checkout scm
+//             }
+//         }
+        
+//         // stage('Install Docker Compose') {
+//         //     steps {
+//         //         sh '''
+//         //            curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+//         //            chmod +x /usr/local/bin/docker-compose
+//         //            ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+//         //            docker-compose --version
+//         //         '''
+//         //     }
+//         // }
+
+//         stage('Pull Latest Images') {
+//             steps {
+//                 script {
+//                     // Pull the latest versions of Postgres and Redis
+//                     sh 'docker pull postgres:15'
+//                     sh 'docker pull redis:5.0.4'
+//                 }
+//             }
+//         }
+
+//         stage('Docker Compose Build and Push') {
+//             steps {
+//                 script {
+//                     withCredentials([usernamePassword(credentialsId: registryCredential, passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+//                         sh "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
+//                         sh 'docker-compose build'
+//                         sh 'docker-compose push'
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 pipeline {
     agent any
 
     environment {
-        registry = "diliipbam"
+        registry = "diliipbam/test"
         registryCredential = "dockerhub"
     }
 
@@ -43,38 +92,31 @@ pipeline {
                 checkout scm
             }
         }
-        
-        // stage('Install Docker Compose') {
-        //     steps {
-        //         sh '''
-        //            curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-        //            chmod +x /usr/local/bin/docker-compose
-        //            ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-        //            docker-compose --version
-        //         '''
-        //     }
-        // }
 
-        stage('Pull Latest Images') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    // Pull the latest versions of Postgres and Redis
-                    sh 'docker pull postgres:15'
-                    sh 'docker pull redis:5.0.4'
+                    sh 'docker build -t diliipbam/test:latest .'
                 }
             }
         }
 
-        stage('Docker Compose Build and Push') {
+        stage('Push Docker Image') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: registryCredential, passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-                        sh "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
-                        sh 'docker-compose build'
-                        sh 'docker-compose push'
+                    docker.withRegistry('', registryCredential) {
+                        docker.image("${registry}:latest").push()
                     }
                 }
             }
         }
+
+        // stage('Deploy with Docker Compose') {
+        //     steps {
+        //         script {
+        //             sh 'docker-compose up -d'
+        //         }
+        //     }
+        // }
     }
 }

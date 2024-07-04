@@ -1,6 +1,6 @@
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-from customer_app.config import DB_URL
+from super_admin.config import DB_URL
 from utilities.db_setup import database_factory
 
 Session = database_factory(DB_URL)

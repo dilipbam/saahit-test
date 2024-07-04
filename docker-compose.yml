@@ -1,51 +1,93 @@
+# version: '3.8'
+
+# services:
+#   customer_app:
+#     build:
+#       context: .
+#       dockerfile: ./deploy/Dockerfile.customer
+#     image: diliipbam/customer_app:latest
+#     ports:
+#       - "8081:80"
+#     environment:
+#       - ENV_VAR=value
+#     depends_on:
+#       - postgres
+#       - redis
+
+#   venue_app:
+#     build:
+#       context: .
+#       dockerfile: ./deploy/Dockerfile.vendor
+#     image: diliipbam/venue_app:latest
+#     ports:
+#       - "8082:80"
+#     environment:
+#       - ENV_VAR=value
+#     depends_on:
+#       - postgres
+#       - redis
+
+#   superadmin:
+#     build:
+#       context: .
+#       dockerfile: ./deploy/Dockerfile.superadmin
+#     image: diliipbam/superadmin:latest
+#     ports:
+#       - "8083:80"
+#     environment:
+#       - ENV_VAR=value
+#     depends_on:
+#       - postgres
+#       - redis
+
+#   postgres:
+#     image: postgres:15
+#     environment:
+#       - POSTGRES_DB=${DATABASE}
+#       - POSTGRES_USER=${DB_USERNAME}
+#       - POSTGRES_PASSWORD=${DB_PASSWORD}
+#     ports:
+#       - "5432:5432"
+
+#   redis:
+#     image: redis:5.0.4
+#     ports:
+#       - "6379:6379"
 version: '3.8'
 
 services:
   customer_app:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.customer
-    image: diliipbam/customer_app:latest
+    image: diliipbam/test:latest
+    env_file:
+      - ./customer_app/.env
     ports:
-      - "8081:80"
-    environment:
-      - ENV_VAR=value
-    depends_on:
-      - postgres
-      - redis
+      - "${SERVICE_PORT}:8000"
 
-  venue_app:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.vendor
-    image: diliipbam/venue_app:latest
+  vendor_app:
+    image: diliipbam/test:latest
+    env_file:
+      - ./vendor_app/.env
     ports:
-      - "8082:80"
-    environment:
-      - ENV_VAR=value
-    depends_on:
-      - postgres
-      - redis
+      - "${SERVICE_PORT}:8001"
 
   superadmin:
-    build:
-      context: .
-      dockerfile: ./deploy/Dockerfile.superadmin
-    image: diliipbam/superadmin:latest
+    image: diliipbam/test:latest
+    env_file:
+      - ./superadmin/.env
     ports:
-      - "8083:80"
-    environment:
-      - ENV_VAR=value
-    depends_on:
-      - postgres
-      - redis
+      - "${SERVICE_PORT}:8002"
+
+  cron_app:
+    image: diliipbam/test:latest
+    env_file:
+      - ./cron_app/.env
+    ports:
+      - "${SERVICE_PORT}:8003"
 
   postgres:
     image: postgres:15
-    environment:
-      - POSTGRES_DB=${DATABASE}
-      - POSTGRES_USER=${DB_USERNAME}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    env_file:
+      - ./postgres/.env
     ports:
       - "5432:5432"
 

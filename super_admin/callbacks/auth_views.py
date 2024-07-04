@@ -9,7 +9,7 @@ from flask_jwt_extended import create_access_token, create_refresh_token, verify
 
 from werkzeug.security import check_password_hash
 
-from customer_app.callbacks.user_validators import LoginSchema
+from customer_app.callbacks.validators.user_validators import LoginSchema
 
 from customer_app.utils.authentication_utils import load_current_user
 
