@@ -80,7 +80,7 @@ services:
   cron_app:
     image: diliipbam/test:latest
     env_file:
-      - ./cron_app/.env
+      - ./cron/.env
     ports:
       - "${SERVICE_PORT}:8003"
 
