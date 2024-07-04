@@ -61,28 +61,28 @@ services:
     env_file:
       - ./customer_app/.env
     ports:
-      - "${SERVICE_PORT}:8000"
+      - "9002:8000"
 
   vendor_app:
     image: diliipbam/test:latest
     env_file:
       - ./vendor_app/.env
     ports:
-      - "${SERVICE_PORT}:8001"
+      - "9001:8001"
 
   superadmin:
     image: diliipbam/test:latest
     env_file:
       - ./super_admin/.env
     ports:
-      - "${SERVICE_PORT}:8002"
+      - "9003:8002"
 
   cron_app:
     image: diliipbam/test:latest
     env_file:
       - ./cron/.env
     ports:
-      - "${SERVICE_PORT}:8003"
+      - "9004:8003"
 
   postgres:
     image: postgres:15
