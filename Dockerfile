@@ -8,7 +8,7 @@ WORKDIR /app
 COPY customer_app /app/customer_app
 COPY vendor_app /app/vendor_app
 COPY super_admin /app/super_admin
-COPY cron_app /app/cron_app
+COPY cron /app/cron
 
 # Copy environment files
 COPY customer_app/.env /app/customer_app/.env
