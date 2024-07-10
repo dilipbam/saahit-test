@@ -18,7 +18,7 @@ services:
       - 8002:9002
     expose:
       - "8000"
-    command: ["python", "/app/customer_app/app_cusotmer.py"]
+    command: ["python", "/app/customer_app/app_customer.py"]
     depends_on:
       - postgres
       - redis
