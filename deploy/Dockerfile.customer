@@ -6,4 +6,5 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY customer_app /app/customer_app
+COPY customer_app/.env /app/customer_app/.env

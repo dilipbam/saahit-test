@@ -6,4 +6,6 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY super_admin /app/super_admin
+
+COPY super_admin/.env /app/super_admin/.env
