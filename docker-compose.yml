@@ -69,18 +69,16 @@ services:
 
   postgres:
     image: postgres:15
-    env_file: .env
     container_name: postgres
     environment:
-      - POSTGRES_USER: "postgres"
-      - POSTGRES_PASSWORD: "root123"
-      - POSTGRES_DB: "sahasahit" 
-      - TZ=Asia/Kathmandu
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "root123"
+      POSTGRES_DB: "sahasahit"
+      TZ: Asia/Kathmandu
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
   redis:
     image: redis:5.0.4
