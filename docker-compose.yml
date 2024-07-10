@@ -2,12 +2,18 @@ version: '3.8'
 
 services:
   customer_app:
-    build:
-      context: .
-      dockerfile: deploy/Dockerfile.customer
+    image: diliipbam/test:latest
     container_name: customer_app
+    # build:
+    #   context: .
+    #   dockerfile: deploy/Dockerfile.customer
+    # container_name: customer_app
     environment:
-      - TZ=Asia/Kathmandu
+      SERVICE: customer_app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root123
+      POSTGRES_DB: sahasahit
+      TZ: Asia/Kathmandu
     ports:
       - 8002:9002
     expose:
@@ -20,12 +26,18 @@ services:
       - ./customer_app:/app
 
   vendor_app:
-    build:
-      context: .
-      dockerfile: deploy/Dockerfile.vendor
+    image: diliipbam/test:latest
     container_name: vendor_app
+    # build:
+    #   context: .
+    #   dockerfile: deploy/Dockerfile.vendor
+    # container_name: vendor_app
     environment:
-      - TZ=Asia/Kathmandu
+      SERVICE: vendor_app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root123
+      POSTGRES_DB: sahasahit
+      TZ: Asia/Kathmandu
     ports:
       - 8001:9001
     command: ["python", "/app/vendor_app/app_vendor.py"]
@@ -36,12 +48,18 @@ services:
       - ./vendor_app:/app
 
   superadmin:
-    build:
-      context: .
-      dockerfile: deploy/Dockerfile.super_admin
-    container_name: super_admin
+    image: diliipbam/test:latest
+    container_name: superadmin
+    # build:
+    #   context: .
+    #   dockerfile: deploy/Dockerfile.super_admin
+    # container_name: super_admin
     environment:
-      - TZ=Asia/Kathmandu
+      SERVICE: superadmin
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root123
+      POSTGRES_DB: sahasahit
+      TZ: Asia/Kathmandu
     ports:
       - 8003:9003
     command: ["python", "/app/super_admin/admin_app.py"]
@@ -52,12 +70,18 @@ services:
       - ./super_admin:/app
 
   cron_app:
-    build:
-      context: .
-      dockerfile: deploy/Dockerfile.cron
+    image: diliipbam/test:latest
     container_name: cron
+    # build:
+    #   context: .
+    #   dockerfile: deploy/Dockerfile.cron
+    # container_name: cron
     environment:
-      - TZ=Asia/Kathmandu
+      SERVICE: superadmin
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root123
+      POSTGRES_DB: sahasahit
+      TZ: Asia/Kathmandu
     ports:
       - 8008:9008
     command: ["python", "/app/cron/run_cron.py"]
@@ -71,9 +95,9 @@ services:
     image: postgres:15
     container_name: postgres
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "root123"
-      POSTGRES_DB: "sahasahit"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root123
+      POSTGRES_DB: sahasahit
       TZ: Asia/Kathmandu
     ports:
       - "5432:5432"
