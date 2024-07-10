@@ -1,11 +1,9 @@
-# customer_app/Dockerfile
 FROM python:3.9-slim
 
+# Setting working directory
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 COPY . .
-
-CMD ["python", "app_customer.py"]

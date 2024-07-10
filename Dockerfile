@@ -18,13 +18,11 @@ COPY cron/.env /app/cron/.env
 
 COPY requirements.txt /app/requirements.txt
 
-# Install any necessary dependencies
-# Assuming each microservice has its own requirements.txt
 RUN pip install -r requirements.txt
 
 
 # Expose necessary ports
-EXPOSE 8000 8001 8002 8003
+#EXPOSE 8000 8001 8002 8003
 
 # Command to run the services
-CMD ["sh", "-c", "python /app/customer_app/app.py & python /app/vendor_app/app.py & python /app/super_admin/app.py & python /app/cron/app.py & tail -f /dev/null"]
+#CMD ["sh", "-c", "python /app/customer_app/app_cusotmer.py & python /app/vendor_app/app_vendor.py & python /app/super_admin/admin_app.py & python /app/cron/run_cron.py & tail -f /dev/null"]
