@@ -7,5 +7,6 @@ COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
-COPY saahit-test/customer_app /app/customer_app
-COPY saahit-test/customer_app/.env /app/customer_app/.env
+COPY . ./
+# COPY customer_app /app/customer_app
+# COPY customer_app/.env /app/customer_app/.env

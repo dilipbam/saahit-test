@@ -6,6 +6,7 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY saahit-test/super_admin /app/super_admin
+# COPY saahit-test/super_admin /app/super_admin
 
-COPY saahit-test/super_admin/.env /app/super_admin/.env
+# COPY saahit-test/super_admin/.env /app/super_admin/.env
+COPY . ./
