@@ -10,6 +10,7 @@ services:
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
       TZ: Asia/Kathmandu
+      PYTHONPATH: /app
     ports:
       - 8002:9002
     expose:
@@ -30,6 +31,7 @@ services:
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
       TZ: Asia/Kathmandu
+      PYTHONPATH: /app
     ports:
       - 8001:9001
     expose:
@@ -50,6 +52,7 @@ services:
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
       TZ: Asia/Kathmandu
+      PYTHONPATH: /app
     ports:
       - 8003:9003
     expose:
@@ -70,6 +73,7 @@ services:
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
       TZ: Asia/Kathmandu
+      PYTHONPATH: /app
     ports:
       - 8008:9008
     expose:

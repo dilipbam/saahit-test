@@ -15,3 +15,5 @@ COPY customer_app/.env /app/customer_app/.env
 COPY vendor_App/.env /app/vendor_app/.env
 COPY super_admin/.env /app/super_admin/.env
 COPY cron/.env /app/cron/.env
+
+ENV PYTHONPATH="/app"
