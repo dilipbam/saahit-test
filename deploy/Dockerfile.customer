@@ -7,7 +7,5 @@ COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
-COPY customer_app /app/customer_app
-COPY customer_app/.env /app/customer_app/.env
-
-CMD ["python", "/app/customer_app/app_customer.py"]
+COPY saahit-test/customer_app /app/customer_app
+COPY saahit-test/customer_app/.env /app/customer_app/.env

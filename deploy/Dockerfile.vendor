@@ -6,8 +6,6 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY vendor_app /app/vendor_app
+COPY saahit-test/vendor_app /app/vendor_app
 
-COPY vendor_app/.env /app/vendor_app/.env
-
-CMD ["python", "/app/vendor_app/app_vendor.py"]
+COPY saahit-test/vendor_app/.env /app/vendor_app/.env

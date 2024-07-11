@@ -6,8 +6,6 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY cron /app/cron
+COPY saahit-test/cron /app/cron
 
-COPY cron/.env /app/cron/.env
-
-CMD ["python", "/app/cron/run_cron.py"]
+COPY saahit-test/cron/.env /app/cron/.env

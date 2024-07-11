@@ -19,7 +19,7 @@ services:
       - postgres
       - redis
     volumes:
-      - ./customer_app:/app
+      - ./customer_app:/app/customer_app
 
   vendor_app:
     image: diliipbam/test:latest
@@ -39,7 +39,7 @@ services:
       - postgres
       - redis
     volumes:
-      - ./vendor_app:/app
+      - ./vendor_app:/app/vendor_app
 
   superadmin:
     image: diliipbam/test:latest
@@ -59,11 +59,11 @@ services:
       - postgres
       - redis
     volumes:
-      - ./super_admin:/app
+      - ./super_admin:/app/super_admin
 
   cron_app:
     image: diliipbam/test:latest
-    container_name: cron
+    container_name: cron_app
     environment:
       SERVICE: superadmin
       POSTGRES_USER: postgres
@@ -79,7 +79,7 @@ services:
       - postgres
       - redis
     volumes:
-      - ./cron:/app
+      - ./cron_app:/app/cron_app
 
   postgres:
     image: postgres:15
