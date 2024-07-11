@@ -23,6 +23,8 @@ services:
       - redis
     volumes:
       - ./customer_app:/app/customer_app
+    networks:
+      - mynetwork
 
   vendor_app:
     image: diliipbam/test:latest
@@ -46,6 +48,8 @@ services:
       - redis
     volumes:
       - ./vendor_app:/app/vendor_app
+    networks:
+      - mynetwork
 
   superadmin:
     image: diliipbam/test:latest
@@ -69,6 +73,8 @@ services:
       - redis
     volumes:
       - ./super_admin:/app/super_admin
+    networks:
+      - mynetwork
 
   cron_app:
     image: diliipbam/test:latest
@@ -92,6 +98,8 @@ services:
       - redis
     volumes:
       - ./cron_app:/app/cron_app
+    networks:
+      - mynetwork
 
   postgres:
     image: postgres:15
@@ -107,6 +115,8 @@ services:
       - "5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
 
   redis:
     image: redis:5.0.4
@@ -117,7 +127,13 @@ services:
       - 6379:6379
     volumes:
       - ./redis_data:/data
+    networks:
+      - mynetwork
 
 volumes:
   postgres_data:
   redis_data:
+
+networks:
+  mynetwork:
+    external: true
