@@ -3,6 +3,8 @@ FROM python:3.9-slim
 # Setting working directory
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y postgresql-client
+
 # Copy all microservices into the container
 # COPY customer_app /app/customer_app
 # COPY vendor_app /app/vendor_app
