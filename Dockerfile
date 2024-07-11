@@ -1,20 +1,20 @@
-# Use a base image with all necessary dependencies
 FROM python:3.9-slim
 
-# Set the working directory
+# Setting working directory
 WORKDIR /app
 
 # Copy all microservices into the container
-COPY customer_app /app/customer_app
-COPY vendor_app /app/vendor_app
-COPY super_admin /app/super_admin
-COPY cron /app/cron
+# COPY customer_app /app/customer_app
+# COPY vendor_app /app/vendor_app
+# COPY super_admin /app/super_admin
+# COPY cron /app/cron
 
 # Copy environment files
-COPY customer_app/.env /app/customer_app/.env
-COPY vendor_app/.env /app/vendor_app/.env
-COPY super_admin/.env /app/super_admin/.env
-COPY cron/.env /app/cron/.env
+# COPY customer_app/.env /app/customer_app/.env
+# COPY vendor_app/.env /app/vendor_app/.env
+# COPY super_admin/.env /app/super_admin/.env
+# COPY cron/.env /app/cron/.env
+COPY . ./
 
 COPY requirements.txt /app/requirements.txt
 
