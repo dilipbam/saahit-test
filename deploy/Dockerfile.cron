@@ -6,6 +6,8 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY super_admin /app/super_admin
+COPY cron /app/cron
 
-COPY super_admin/.env /app/super_admin/.env
+COPY cron/.env /app/cron/.env
+
+CMD ["python", "/app/cron/run_cron.py"]

@@ -4,16 +4,12 @@ services:
   customer_app:
     image: diliipbam/test:latest
     container_name: customer_app
-    # build:
-    #   context: .
-    #   dockerfile: deploy/Dockerfile.customer
-    # container_name: customer_app
     environment:
-      SERVICE: customer_app
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root123
-      POSTGRES_DB: sahasahit
-      TZ: Asia/Kathmandu
+      - SERVICE=customer_app
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB= ${DATABASE}
+      - TZ= Asia/Kathmandu
     ports:
       - 8002:9002
     expose:
@@ -28,18 +24,16 @@ services:
   vendor_app:
     image: diliipbam/test:latest
     container_name: vendor_app
-    # build:
-    #   context: .
-    #   dockerfile: deploy/Dockerfile.vendor
-    # container_name: vendor_app
     environment:
-      SERVICE: vendor_app
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root123
-      POSTGRES_DB: sahasahit
-      TZ: Asia/Kathmandu
+      - SERVICE=customer_app
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB= ${DATABASE}
+      - TZ= Asia/Kathmandu
     ports:
       - 8001:9001
+    expose:
+      - "8001"
     command: ["python", "/app/vendor_app/app_vendor.py"]
     depends_on:
       - postgres
@@ -50,18 +44,16 @@ services:
   superadmin:
     image: diliipbam/test:latest
     container_name: superadmin
-    # build:
-    #   context: .
-    #   dockerfile: deploy/Dockerfile.super_admin
-    # container_name: super_admin
     environment:
-      SERVICE: superadmin
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root123
-      POSTGRES_DB: sahasahit
-      TZ: Asia/Kathmandu
+      - SERVICE=customer_app
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB= ${DATABASE}
+      - TZ= Asia/Kathmandu
     ports:
       - 8003:9003
+    expose:
+      - "8003"
     command: ["python", "/app/super_admin/admin_app.py"]
     depends_on:
       - postgres
@@ -72,18 +64,16 @@ services:
   cron_app:
     image: diliipbam/test:latest
     container_name: cron
-    # build:
-    #   context: .
-    #   dockerfile: deploy/Dockerfile.cron
-    # container_name: cron
     environment:
-      SERVICE: superadmin
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root123
-      POSTGRES_DB: sahasahit
-      TZ: Asia/Kathmandu
+      - SERVICE=customer_app
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB= ${DATABASE}
+      - TZ= Asia/Kathmandu
     ports:
       - 8008:9008
+    expose:
+      - "8008"
     command: ["python", "/app/cron/run_cron.py"]
     depends_on:
       - postgres
@@ -95,10 +85,11 @@ services:
     image: postgres:15
     container_name: postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root123
-      POSTGRES_DB: sahasahit
-      TZ: Asia/Kathmandu
+      - SERVICE=customer_app
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB= ${DATABASE}
+      - TZ= Asia/Kathmandu
     ports:
       - "5435:5432"
     volumes:
