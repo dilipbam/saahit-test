@@ -7,6 +7,16 @@ COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
 
-COPY . ./
+COPY customer_app /app/customer_app
+COPY vendor_app /app/vendor_app
+COPY cron /app/cron
+COPY super_admin /app/super_admin
+COPY common_services /app/common_services
+COPY utilities /app/utilities
+
+COPY customer_app/.env /app/customer_app/.env
+COPY vendor_app/.env /app/vendor_app/.env
+COPY cron/.env /app/cron/.env
+COPY super_admin/.env /app/super_admin/.env
 
 ENV PYTHONPATH="/app"
