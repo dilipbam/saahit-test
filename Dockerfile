@@ -20,9 +20,4 @@ COPY requirements.txt /app/requirements.txt
 
 RUN pip install -r requirements.txt
 
-
-# Expose necessary ports
-#EXPOSE 8000 8001 8002 8003
-
-# Command to run the services
-#CMD ["sh", "-c", "python /app/customer_app/app_cusotmer.py & python /app/vendor_app/app_vendor.py & python /app/super_admin/admin_app.py & python /app/cron/run_cron.py & tail -f /dev/null"]
+ENV PYTHONPATH="/app"
