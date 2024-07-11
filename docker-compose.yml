@@ -9,6 +9,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
+      DATABASE_HOST: postgres  
+      DATABASE_PORT: 5432
       TZ: Asia/Kathmandu
       PYTHONPATH: /app
     ports:
@@ -30,6 +32,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
+      DATABASE_HOST: postgres  
+      DATABASE_PORT: 5432
       TZ: Asia/Kathmandu
       PYTHONPATH: /app
     ports:
@@ -51,6 +55,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
+      DATABASE_HOST: postgres  
+      DATABASE_PORT: 5432
       TZ: Asia/Kathmandu
       PYTHONPATH: /app
     ports:
@@ -72,6 +78,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
+      DATABASE_HOST: postgres  
+      DATABASE_PORT: 5432
       TZ: Asia/Kathmandu
       PYTHONPATH: /app
     ports:
