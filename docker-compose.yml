@@ -1,6 +1,40 @@
 version: '3.8'
 
 services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root123
+      POSTGRES_DB: sahasahit
+      TZ: Asia/Kathmandu
+    ports:
+      - 5432:5432
+    expose:
+      - "5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    networks:
+      - mynetwork
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  redis:
+    image: redis:5.0.4
+    container_name: redis
+    environment:
+      - TZ=Asia/Kathmandu
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis_data:/data
+    networks:
+      - mynetwork
+
   customer_app:
     image: diliipbam/test:latest
     container_name: customer_app
@@ -9,18 +43,24 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
-      DATABASE_HOST: postgresql  
+      DATABASE_HOST: postgres
       DATABASE_PORT: 5432
       TZ: Asia/Kathmandu
       PYTHONPATH: /app
     ports:
       - 8002:9002
     expose:
-      - "8000"
-    command: ["python", "/app/customer_app/app_customer.py"]
+      - "9002"
+    command: ["/app/wait-for-it.sh", "postgres:5432", "--", "python", "/app/customer_app/app_customer.py"]
     depends_on:
-      - postgres
-      - redis
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    #command: ["python", "/app/customer_app/app_customer.py"]
+    # depends_on:
+    #   - postgres
+    #   - redis
     volumes:
       - ./customer_app:/app/customer_app
     networks:
@@ -34,14 +74,14 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
-      DATABASE_HOST: postgresql  
+      DATABASE_HOST: postgres  
       DATABASE_PORT: 5432
       TZ: Asia/Kathmandu
       PYTHONPATH: /app
     ports:
       - 8001:9001
     expose:
-      - "8001"
+      - "9001"
     command: ["python", "/app/vendor_app/app_vendor.py"]
     depends_on:
       - postgres
@@ -59,14 +99,14 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
-      DATABASE_HOST: postgresql  
+      DATABASE_HOST: postgres  
       DATABASE_PORT: 5432
       TZ: Asia/Kathmandu
       PYTHONPATH: /app
     ports:
       - 8003:9003
     expose:
-      - "8003"
+      - "9003"
     command: ["python", "/app/super_admin/admin_app.py"]
     depends_on:
       - postgres
@@ -84,49 +124,20 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root123
       POSTGRES_DB: sahasahit
-      DATABASE_HOST: postgresql  
+      DATABASE_HOST: postgres  
       DATABASE_PORT: 5432
       TZ: Asia/Kathmandu
       PYTHONPATH: /app
     ports:
       - 8008:9008
     expose:
-      - "8008"
+      - "9008"
     command: ["python", "/app/cron/run_cron.py"]
     depends_on:
       - postgres
       - redis
     volumes:
       - ./cron_app:/app/cron_app
-    networks:
-      - mynetwork
-
-  postgres:
-    image: postgres:15
-    container_name: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root123
-      POSTGRES_DB: sahasahit
-      TZ: Asia/Kathmandu
-    ports:
-      - 5432:5432
-    expose:
-      - "5432"
-    volumes:
-      - ./postgres_data:/var/lib/postgresql/data
-    networks:
-      - mynetwork
-
-  redis:
-    image: redis:5.0.4
-    container_name: redis
-    environment:
-      - TZ=Asia/Kathmandu
-    ports:
-      - 6379:6379
-    volumes:
-      - ./redis_data:/data
     networks:
       - mynetwork
 
