@@ -37,6 +37,9 @@ services:
 
   customer_app:
     image: diliipbam/test:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: customer_app
     environment:
       SERVICE: customer_app
@@ -68,6 +71,9 @@ services:
 
   vendor_app:
     image: diliipbam/test:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: vendor_app
     environment:
       SERVICE: vendor_app
@@ -93,6 +99,9 @@ services:
 
   superadmin:
     image: diliipbam/test:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: superadmin
     environment:
       SERVICE: superadmin
@@ -118,6 +127,9 @@ services:
 
   cron_app:
     image: diliipbam/test:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: cron_app
     environment:
       SERVICE: superadmin
