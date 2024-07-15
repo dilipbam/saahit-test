@@ -6,6 +6,9 @@ pipeline {
         registry = "diliipbam/test"
         registryCredential = "dockerhub"
     }
+    triggers {
+        githubPush()
+    }
 
     stages {
         stage('Checkout') {
